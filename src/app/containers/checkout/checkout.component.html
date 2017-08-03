@@ -1,0 +1,154 @@
+<main class="main">
+   <div class="sec-1">
+     <div class="mar30">
+        <div class="mar30"><button md-raised-button color="warn" style="font-size:5em;">${{cost}}</button></div>
+     </div>
+      You're buying the <span color="warn" class="alert alert-success">{{title}}</span>
+   </div>
+</main>
+<section class="container-fluid" style="text-align:center">
+ <h2> With the Leading and Secure payment processors </h2>
+ <p> Click to complete your checkout</p>
+
+<div class="container">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#paypal" role="tab">Use Paypal</a>
+  </li>
+  <!--<li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#stripe" role="tab">Use Stripe</a>
+  </li>-->
+  <!--<li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#skrill" role="tab">Skrill</a>
+  </li>-->
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#checkout2" role="tab">2Checkout</a>
+  </li>
+
+</ul>
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="paypal" role="tabpanel">
+
+    <md-card>
+         <h3>Pay With Paypal</h3>
+          <form #form class="form-inline text-center" name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="fordoh89@gmail.com">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="item_name" value="{{title}}">
+            <input name="item_number" type="hidden" value="{{cid}}-{{uid}}"/>
+            <input type="hidden" name="amount" value="{{cost}}">
+            <input type="hidden" name="return" value="https://angular2courses.com/checkout/success" />
+            <input type="hidden" name="cancel_return" value="https://angular2courses.com/checkout/cancelled" />
+            <input type="hidden" name="custom" value={{title}}>
+            <!--pass your notification URL-->
+            <input name="notify_url" value="http://angular2courses.website/Paypal/paypalipn.php" type="hidden"><br/><br/>
+            <input (click)="form.submit()" type="image" src="assets/button-p.png" border="0"  class="center-btn"
+                        name="submit" alt="Make payments with PayPal - it's fast, free and secure!"/>
+        </form>
+       </md-card>
+
+  </div>
+  <!--<div class="tab-pane" id="stripe" role="tabpanel">
+    <md-card>
+ 
+     <div *ngIf="msg !== ''" class="alert alert-warning">{{msg}}</div>
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png"><br>Payment Details</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" id="payment-form" (submit)="getCardData(number.value, month.value,year.value,cvc.value)" action="post">
+            <div class="row">
+              <div class="col-xs-12 col-md-12">
+                <div class="form-group">
+                  <label for="cardNumber">CARD NUMBER</label>
+                  <div class="input-group">
+                    <input #number type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number"/>
+                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-7 col-md-9">
+                <div class="form-group">
+                  <label for="expMonth">EXPIRATION DATE</label>
+                  <div class="row">
+                  <div class="col-xs-6 col-lg-6 pl-ziro">
+                    <input #month type="text" class="form-control" id="expMonth" placeholder="MM" required data-stripe="exp_month"  />
+                  </div>
+                  <div class="col-xs-6 col-lg-6 pl-ziro">
+                    <input #year type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-5 col-md-3 pull-right">
+                <div class="form-group">
+                  <label for="cvCode">CV CODE</label>
+                  <input #cvc type="password" class="form-control" id="cvCode" placeholder="CV" required data-stripe="cvc"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button md-raised-button color="primary" type="submit">Pay ${{cost}} for {{title}}</button>
+              </div>
+            </div>
+            <div class="row" style="display:none;">
+              <div class="col-xs-12">
+                <p class="payment-errors"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </md-card>
+  </div>-->
+ <!-- <div class="tab-pane" id="skrill" role="tabpanel">Skrill</div>-->
+  <div class="tab-pane" id="checkout2" role="tabpanel" >
+     <!--https://www.2checkout.com/checkout/purchase / https://sandbox.2checkout.com/checkout/purchase-->
+     <md-card>
+      <form #formcheck action='https://www.2checkout.com/checkout/purchase' method='post'>
+        <input type='hidden' name='sid' value='103339696' />
+        <input type='hidden' name='mode' value='2CO' />
+        <input type='hidden' name='li_0_type' value='product' />
+        <input type='hidden' name='li_0_name' value='{{title}}' />
+        <input type='hidden' name='li_0_price' value='{{cost}}' />
+        <input type='hidden' name='card_holder_name' value='' />
+        <input type='hidden' name='street_address' value='' />
+        <input type='hidden' name='street_address2' value='' />
+        <input type='hidden' name='city' value='' />
+        <input type='hidden' name='state' value='' />
+        <input type='hidden' name='zip' value='' />
+        <input type='hidden' name='country' value='' />
+        <input type='hidden' name='email' value='{{email}}' />
+        <input (click)="formcheck.submit()" name='submit' type="image" src="assets/2checkout-logo.png" />
+        </form>
+     </md-card>
+  </div>
+</div>
+</div>
+
+
+
+
+   <div class="mar30">
+   <h3> Can't afford any of this, well, we have a free course here for you!</h3>
+   <a href="http://courses.angularclass.com/p/angular-2-fundamentals">Angular 2 Fundamentals</a>
+   </div>
+
+
+
+</section>

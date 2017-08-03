@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    background: #e8ebf5 !important;
+    
+}
+html, body, md-sidenav-container{
+    
+}
+ a { color: #006064; text-decoration: none;}
+ .primary-color{
+  color: #006064;
+}
+.shadow-1 {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.shadow-1-main {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.shadow-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shadow-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.shadow-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.shadow-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shadow-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.container-fluid{
+    padding-right:  0px !important;
+    padding-left: 0px !important;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.main {
+    height: 300px;
+    width: 100%;
+    background: #006064;
+    text-align: center;
+    display:block;
+}
+.sec-1 {
+    position: relative;
+    color: white;
+   padding: 50px 0;
+   font-size: 2em;
+   font-weight: 700;
+}
+.mar10 {
+    margin: 5px 0;
+}
+.mar30 {
+    margin: 18px 0;
+}
+.large {
+    font-size: 6em;
+}
+h3{
+    text-decoration: underline;
+}
+.left {
+    float: left;
+    width: 50%;
+}
+.copyright {
+    font-size: 0.8em;
+}
+.right {
+    float: left;
+    width: 50%;
+}
+button a {
+    color: #fff;
+}
+button a:hover {
+    color: #fff;
+}
+.center-btn {
+    margin-right: auto;
+    margin-left: auto;
+}
+.login-link {
+    margin-bottom:10px;
+    float: right;
+}
+.acc-icon {
+    float: left;
+    margin-top: 5px;
+}
+img.stripe_img {
+ height: 118px;
+}
+footer  a:hover {
+ color: #fff;
+}
